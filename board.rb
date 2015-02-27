@@ -73,4 +73,17 @@ class Board
     end
     new_grid
   end
+
+  def won?
+    colors = []
+    @grid.flatten.compact.each do |piece|
+      colors << piece.color unless colors.include?(piece.color)
+    end
+
+    if colors.length == 1
+      return true
+    else
+      return false
+    end
+  end
 end

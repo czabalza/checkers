@@ -1,4 +1,4 @@
-require_relative "board.rb"
+#require_relative "board.rb"
 require 'unicode'
 require 'colorize'
 require 'byebug'
@@ -32,7 +32,7 @@ class Piece
     current_piece = board[self.position]
     mid_delta = [((end_pos[0] - self.position[0]) / 2), ((end_pos[1] - self.position[1]) / 2)]
     mid_pos = [self.position[0] + mid_delta[0], self.position[1] + mid_delta[1]]
-debugger
+
     if blocked?(mid_pos) && on_board?(end_pos) &&
                  move_diffs.include?(mid_delta) && !blocked?(end_pos) &&
                  board[mid_pos].color != color
@@ -72,7 +72,6 @@ debugger
   end
 
   def perform_moves(move_sequence)
-    debugger
     if self.valid_move_seq?(move_sequence)
       perform_moves!(move_sequence)
     else
